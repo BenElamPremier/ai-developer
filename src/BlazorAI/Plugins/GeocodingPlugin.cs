@@ -19,6 +19,7 @@ namespace BlazorAI.Plugins
 		[return: Description("JSON collection containing a collection of lat and lon values for the supplied address that matches.")]
 		public async Task<string> GeocodeAddressAsync(string address)
 		{
+			Console.WriteLine("Getting Geocode Address");
 			using HttpClient httpClient = _httpClientFactory.CreateClient();
 			var response = await httpClient.GetStringAsync(
 				$"https://geocode.maps.co/search?q={address}&api_key={_apiKey}");
